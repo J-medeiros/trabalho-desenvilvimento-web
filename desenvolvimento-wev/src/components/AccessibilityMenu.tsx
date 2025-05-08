@@ -8,23 +8,21 @@ export function AccessibilityMenu() {
 
   return (
     <div
+      className="d-flex gap-2 p-2 shadow"
       style={{
         position: "fixed",
         top: 10,
         right: 10,
-        background: "#eee",
-        padding: "10px",
+        background: "#f8f9fa",
         borderRadius: "8px",
         zIndex: 999,
       }}
     >
-      <button onClick={toggleTheme}>
-        Tema: {theme === "ligth" ? "Clao" : "Escuro"}
+      <button onClick={toggleTheme} className="btn btn-outline-dark btn-sm">
+        Tema: {theme === "ligth" ? "Claro" : "Escuro"}
       </button>
-      <br />
-      <button onClick={toggleLanguage}>
-        {" "}
-        Idioma: {language === "pt" ? "br PT" : "us EN"}
+      <button onClick={toggleLanguage} className="btn btn-outline-primary btn-sm">
+        Idioma: {language === "pt" ? "PT-BR" : "EN-US"}
       </button>
     </div>
   );
