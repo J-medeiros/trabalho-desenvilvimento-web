@@ -17,19 +17,31 @@ export function UserFormView() {
     [name, navigate]
   );
 
-  return(
-  <div>
-    <h1>{t.titleForm}</h1>
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-        placeholder={t.inputPlaceholder}
-      />
+  return (
+    <div className="container py-4">
+      <h1 className="mb-4">{t.titleForm}</h1>
 
+      <form onSubmit={handleSubmit} className="mb-3">
+        <div className="mb-3">
+          <input
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            className="form-control"
+            placeholder={t.inputPlaceholder}
+            required
+          />
+        </div>
 
-      <button type="submit">{t.newUser}</button>
-    </form>
-  </div>);
+        <div className="container py-2">
+          <button type="submit" className="btn btn-success me-2">
+            {t.submitButton}
+          </button>
+          <button className="btn btn-secondary" onClick={() => navigate("/")}>
+            Voltar
+          </button>
+        </div>
+      </form>
+    </div>
+  );
 }

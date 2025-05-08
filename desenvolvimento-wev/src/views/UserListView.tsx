@@ -8,19 +8,26 @@ export function UserListView() {
   const t = useTranslation();
 
   useEffect(() => {
-    const data = getUsers();
-    setUsers(data);
+    setUsers(getUsers());
   }, []);
 
   const userList = useMemo(() => {
-    return users.map((user, index) => <li key={index}>{user}</li>);
+    return users.map((user, index) => (
+      <li className="list-group-item" key={index}>
+        {user}
+      </li>
+    ));
   }, [users]);
 
   return (
-    <div>
-      <h1>{t.titleList}</h1>
-      <ul>{userList}</ul>
-      <Link to="/novo">{t.submitButton}</Link>
+    <div className="container py-4">
+      <h1 className="mb-4">{t.titleList}</h1>
+
+      <ul className="list-group mb-4">{userList}</ul>
+
+      <Link to="/novo" className="btn btn-primary">
+        {t.newUser}
+      </Link>
     </div>
   );
 }
